@@ -1,0 +1,37 @@
+<% layout('layouts/boilerplate')%>
+    <div class="row">
+        <h1 class="text-center ">Edit Person</h1>
+        <div class="col-6 offset-3">
+            <form action="/person/<%= person._id %>?_method=PUT" method="POST">
+                <div class="mb-3">
+                    <label class="form-label" for="name">Name</label>
+                    <input class="form-control" type="text" id="name" name="person[name]" value="<%= person.name %>"
+                        required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="age">Age</label>
+                    <input class="form-control" type="number" id="age" name="person[age]" value="<%= person.age %>"
+                        required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="gender">Gender</label>
+                    <select class="form-select" aria-label="Default select example" id="gender" name="person[gender]"
+                        required>
+                        <option selected><%= person.gender %></option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="mobileNumber">Mobile Number:</label>
+                    <input class="form-control" type="text" id="mobileNumber" name="person[mobileNumber]"
+                        value="<%= person.mobileNumber %>" required>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-outline-dark">Update Information</button>
+                </div>
+            </form>
+
+        </div>
+    </div>

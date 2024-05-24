@@ -1,0 +1,56 @@
+<% layout('layouts/boilerplate')%>
+
+    <h1 class = "text-center text-uppercase mb-5">All People</h1>
+
+    <div class="table-responsive">
+        <table class="table table-striped custom-table text-center ">
+            <thead class="fw-bold">
+                <tr class="fs-5 fw-bold">
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Mobile Number</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody class="fw-medium ">
+                <% let i=1; %>
+                    <% for (let person of persons){%>
+                        <tr>
+                            <th scope="row">
+                                <%= i %>
+                            </th>
+                            <td>
+                                <%=person.name%>
+                            </td>
+                            <td>
+                                <%=person.age%>
+                            </td>
+                            <td>
+                                <%=person.gender%>
+                            </td>
+                            <td>
+                                <%=person.mobileNumber%>
+                            </td>
+                            <td>
+                                <a href="/person/<%=person._id%>/edit" class="icon link-opacity-10-hover">
+                                    
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <form action="/person/<%=person._id%>?_method=DELETE" method="POST">
+                                    <button class="btn btn-outline-secondary btn-sm"><i class="bi bi-trash"></i></button>
+                                </form>
+                            </td>
+                        </tr>
+                        <% i++; %>
+                            <tr class="spacer">
+                                <td colspan="100"></td>
+                            </tr>
+                            <% }%>
+            </tbody>
+        </table>
+    </div>
